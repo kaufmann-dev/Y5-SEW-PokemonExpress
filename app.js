@@ -8,7 +8,7 @@ const filepath = path.join(__dirname, "views");
 app.set("views", filepath);
 app.set("view engine", "ejs");
 
-var pokemons = [
+var vpokemons = [
     {
         name: "Charizard",
         type: "fire",
@@ -26,7 +26,7 @@ var pokemons = [
     }
 ];
 
-var locations = [
+var vlocations = [
     {
         name: "Route 30",
         shortname: "route30",
@@ -51,7 +51,7 @@ var locations = [
 ];
 
 app.get("/:location", (req, res)=>{
-    res.render("index.ejs", {locations:locations, pokemons:pokemons});
+    res.render("index.ejs", { locations: vlocations, pokemons: vpokemons });
 });
 
 app.listen(8080);

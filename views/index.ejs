@@ -8,15 +8,29 @@
 </head>
 <body>
     <%
-        
-        /*locations.forEach(location => {
+        var mylocation = null;
+        locations.forEach(location => {
             if(location.shortname == req.params.location){
-                var mylocation = location;
+                mylocation = location;
             }
-        });*/
+        });
     %> 
     <h1><%= req.params.location %></h1>
-    
+    <%
+        pokemons.forEach(pokemon => {
+            switch(pokemon.type){
+                case "fire":
+                    %><p>Pokemon <%= pokemon.name %> has a chance of <%= 5*(mylocation.fire/100) %> percent to appear</p><%
+                    break;
+                case "fat":
+                    %><p>Pokemon <%= pokemon.name %> has a chance of <%= 5*(mylocation.fat/100) %> percent to appear</p><%
+                    break;
+                case "electro":
+                    %><p>Pokemon <%= pokemon.name %> has a chance of <%= 5*(mylocation.electro/100) %> percent to appear</p><%
+                    break;
+            }
+        });
+    %> 
 
 </body>
 </html>
